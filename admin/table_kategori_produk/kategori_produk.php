@@ -38,7 +38,7 @@ $rs = $dbh->query($sql);
                 <i class="fas fa-table me-1"></i>
                 <a class="btn btn-success" href="index.php?key=table_kategori_produk/form_kategori_produk">Create Kategori Produk</a>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
                 <table id="datatablesSimple">
                     <thead>
                         <tr>
