@@ -337,7 +337,7 @@
         <h2>Reservation</h2>
         <p>Book a Table</p>
       </div>
-      
+
       <style>
         .php-form {
           width: 100%;
@@ -348,7 +348,8 @@
         }
 
         .php-form input,
-        .php-form textarea {
+        .php-form textarea,
+        .php-form select {
           border-radius: 0;
           box-shadow: none;
           font-size: 14px;
@@ -421,7 +422,18 @@
             <div class="validate"></div>
           </div>
           <div class="col-lg-12 col-md-6 form-group mt-3">
-            <input type="text" class="form-control" name="produk_id" id="produk_id" placeholder="Produk ID" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+            <!-- <input type="text" class="form-control" name="produk_id" id="produk_id" placeholder="Produk ID" data-rule="minlen:1" data-msg="Please enter at least 1 chars"> -->
+            <select class="form-control" name="produk_id" id="produk_id" data-rule="required" data-msg="Please select a product">
+              <option value="">Select Product</option>
+              <?php
+              $sql = "SELECT id, nama FROM produk";
+              $stmt = $dbh->prepare($sql);
+              $stmt->execute();
+              while ($row = $stmt->fetch()) {
+                echo "<option value='" . $row['id'] . "'>" . $row['nama'] . "</option>";
+              }
+              ?>
+            </select>
             <div class="validate"></div>
           </div>
         </div>
